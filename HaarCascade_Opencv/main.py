@@ -9,7 +9,7 @@ eye_cascade = cv2.CascadeClassifier('C:\FACULDADE\EyeTrackingTests\HaarCascade_O
 run = True
 while run:
     _, frame = cap.read()
-    
+    frame = cv2.flip(frame, 1)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
     for (x,y,w,h) in faces:
@@ -19,7 +19,7 @@ while run:
         eyes = eye_cascade.detectMultiScale(roi_gray)
         for (ex,ey,ew,eh) in eyes:
             cv2.rectangle(roi_color,(ex,ey),(ex+ew,ey+eh),(0,255,0),2)
-    
+            
     cv2.imshow("Haar Cascade Opencv", frame)
     key = cv2.waitKey(1)
     if key == 27:
