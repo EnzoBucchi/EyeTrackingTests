@@ -1,0 +1,6 @@
+1.  Search "python 3.8.10" version in google
+    - https://www.python.org/downloads/release/python-3810/
+2.  Download Windows installer (64-bit) file
+3.  Install downloaded file
+4.  Open cmd and type
+    - pip install mediapipe
