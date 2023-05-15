@@ -40,10 +40,6 @@ with mp_face_mesh.FaceMesh(max_num_faces=1,
             #Iris region
             cv2.circle(frame, center_left, int(l_radius), (255,0,255), 1, cv2.LINE_AA)
             cv2.circle(frame, center_right, int(r_radius), (255,0,255), 1, cv2.LINE_AA)
-            
-            #Center of Iris (pupil estimation)
-            cv2.circle(frame, center_left, 1, (0,155,255), 1, cv2.LINE_AA)
-            cv2.circle(frame, center_right, 1, (0,155,255), 1, cv2.LINE_AA)
         
         cv2.imshow("Iris Segmentation Mediapipe Opencv", frame)
         key = cv2.waitKey(1)
