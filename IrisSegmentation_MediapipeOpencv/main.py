@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 import mediapipe as mp
 
-LEFT_EYE = [362, 382, 381, 380, 374, 373, 390, 249, 263, 466, 388, 387, 386, 385,384, 398]
+LEFT_EYE = [362, 382, 381, 380, 374, 373, 390, 249, 263, 466, 388, 387, 386, 385, 384, 398]
 RIGHT_EYE = [33, 7, 163, 144, 145, 153, 154, 155, 133, 173, 157, 158, 159, 160, 161, 246]
 LEFT_IRIS = [474, 475, 476, 477]
 RIGHT_IRIS = [469, 470, 471, 472]
@@ -40,8 +40,12 @@ with mp_face_mesh.FaceMesh(max_num_faces=1,
             #Iris region
             cv2.circle(frame, center_left, int(l_radius), (255,0,255), 1, cv2.LINE_AA)
             cv2.circle(frame, center_right, int(r_radius), (255,0,255), 1, cv2.LINE_AA)
+            
+            #Center of Iris (pupil estimation)
+            cv2.circle(frame, center_left, 1, (0,155,255), 1, cv2.LINE_AA)
+            cv2.circle(frame, center_right, 1, (0,155,255), 1, cv2.LINE_AA)
         
-        cv2.imshow("Iris Segmentation Mediapipe Opencv", frame)
+        cv2.imshow("My Test", frame)
         key = cv2.waitKey(1)
         if key == 27:
             run = False
